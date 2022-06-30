@@ -185,6 +185,19 @@ p, li { white-space: pre-wrap; }
      <string>Screen Decryption</string>
     </property>
    </widget>
+   <widget class="QCheckBox" name="RandomCheckBox">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>200</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Random En/De-Crypt</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

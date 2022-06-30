@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'aes_mainpageFbwDaD.ui'
+## Form generated from reading UI file 'aes_mainpageNNEuXy.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -59,6 +59,9 @@ class Ui_MainWindow(object):
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setGeometry(QRect(20, 530, 161, 51))
+        self.RandomCheckBox = QCheckBox(self.centralwidget)
+        self.RandomCheckBox.setObjectName(u"RandomCheckBox")
+        self.RandomCheckBox.setGeometry(QRect(610, 200, 211, 20))
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -87,5 +90,6 @@ class Ui_MainWindow(object):
         self.key_label.setText(QCoreApplication.translate("MainWindow", u"AES Key:", None))
         self.about_label.setText(QCoreApplication.translate("MainWindow", u"Marco Cheung @ 2022, https://github.com/marc0cheung/", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Screen Decryption", None))
+        self.RandomCheckBox.setText(QCoreApplication.translate("MainWindow", u"Random En/De-Crypt", None))
     # retranslateUi
 
