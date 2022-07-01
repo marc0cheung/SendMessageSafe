@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>743</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>20</y>
+      <y>160</y>
       <width>93</width>
       <height>41</height>
      </rect>
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>20</y>
+      <y>160</y>
       <width>251</width>
       <height>16</height>
      </rect>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>90</y>
+      <y>230</y>
       <width>251</width>
       <height>16</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>80</y>
+      <y>220</y>
       <width>93</width>
       <height>41</height>
      </rect>
@@ -70,7 +70,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>180</y>
+      <y>320</y>
       <width>621</width>
       <height>161</height>
      </rect>
@@ -80,7 +80,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>390</y>
+      <y>530</y>
       <width>621</width>
       <height>171</height>
      </rect>
@@ -90,7 +90,7 @@
     <property name="geometry">
      <rect>
       <x>680</x>
-      <y>300</y>
+      <y>440</y>
       <width>93</width>
       <height>71</height>
      </rect>
@@ -103,7 +103,7 @@
     <property name="geometry">
      <rect>
       <x>680</x>
-      <y>400</y>
+      <y>540</y>
       <width>93</width>
       <height>71</height>
      </rect>
@@ -116,7 +116,7 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>570</y>
+      <y>710</y>
       <width>431</width>
       <height>20</height>
      </rect>
@@ -129,7 +129,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>150</y>
+      <y>290</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -142,7 +142,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>360</y>
+      <y>500</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -155,13 +155,75 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>130</y>
+      <y>270</y>
       <width>761</width>
       <height>21</height>
      </rect>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>120</y>
+      <width>761</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>50</y>
+      <width>93</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Generate</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="msgLabel_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>411</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1. Generate Public and Private Keys:</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>60</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>70</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>FileName:</string>
     </property>
    </widget>
   </widget>
