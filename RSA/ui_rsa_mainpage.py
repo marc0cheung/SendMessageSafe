@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'rsa_mainpageVboiNJ.ui'
+## Form generated from reading UI file 'rsa_mainpageBbPqqo.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -63,18 +63,18 @@ class Ui_MainWindow(object):
         self.line_2.setGeometry(QRect(20, 120, 761, 21))
         self.line_2.setFrameShape(QFrame.HLine)
         self.line_2.setFrameShadow(QFrame.Sunken)
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(650, 50, 93, 51))
-        self.msgLabel_2 = QLabel(self.centralwidget)
-        self.msgLabel_2.setObjectName(u"msgLabel_2")
-        self.msgLabel_2.setGeometry(QRect(30, 20, 411, 16))
-        self.textEdit = QTextEdit(self.centralwidget)
-        self.textEdit.setObjectName(u"textEdit")
-        self.textEdit.setGeometry(QRect(130, 60, 201, 41))
-        self.label = QLabel(self.centralwidget)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(40, 70, 91, 16))
+        self.genKeyBtn = QPushButton(self.centralwidget)
+        self.genKeyBtn.setObjectName(u"genKeyBtn")
+        self.genKeyBtn.setGeometry(QRect(650, 50, 93, 51))
+        self.genKeyLabel = QLabel(self.centralwidget)
+        self.genKeyLabel.setObjectName(u"genKeyLabel")
+        self.genKeyLabel.setGeometry(QRect(30, 20, 411, 16))
+        self.fileNameInput = QTextEdit(self.centralwidget)
+        self.fileNameInput.setObjectName(u"fileNameInput")
+        self.fileNameInput.setGeometry(QRect(130, 60, 201, 41))
+        self.fileNameLabel = QLabel(self.centralwidget)
+        self.fileNameLabel.setObjectName(u"fileNameLabel")
+        self.fileNameLabel.setGeometry(QRect(40, 70, 91, 16))
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -93,8 +93,8 @@ class Ui_MainWindow(object):
         self.aboutLabel.setText(QCoreApplication.translate("MainWindow", u"Marco Cheung @ 2022, https://github.com/marc0cheung", None))
         self.msgLabel.setText(QCoreApplication.translate("MainWindow", u"Message:", None))
         self.outputLabel.setText(QCoreApplication.translate("MainWindow", u"Output:", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Generate", None))
-        self.msgLabel_2.setText(QCoreApplication.translate("MainWindow", u"1. Generate Public and Private Keys:", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"FileName:", None))
+        self.genKeyBtn.setText(QCoreApplication.translate("MainWindow", u"Generate", None))
+        self.genKeyLabel.setText(QCoreApplication.translate("MainWindow", u"1. Generate Public and Private Keys:", None))
+        self.fileNameLabel.setText(QCoreApplication.translate("MainWindow", u"FileName:", None))
     # retranslateUi
 

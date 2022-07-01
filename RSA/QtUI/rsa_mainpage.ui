@@ -177,7 +177,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="genKeyBtn">
     <property name="geometry">
      <rect>
       <x>650</x>
@@ -190,7 +190,7 @@
      <string>Generate</string>
     </property>
    </widget>
-   <widget class="QLabel" name="msgLabel_2">
+   <widget class="QLabel" name="genKeyLabel">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -203,7 +203,7 @@
      <string>1. Generate Public and Private Keys:</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="fileNameInput">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -213,7 +213,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="fileNameLabel">
     <property name="geometry">
      <rect>
       <x>40</x>

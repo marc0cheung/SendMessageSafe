@@ -5,11 +5,21 @@
 # @File    : rsa.py
 # @Software: SendMessageSafe
 
+import sys
+
 import Crypto.PublicKey.RSA
 import Crypto.Cipher.PKCS1_v1_5
 import Crypto.Random
 import Crypto.Signature.PKCS1_v1_5
 import Crypto.Hash
+
+from PySide2 import QtCore, QtGui, QtWidgets
+import qimage2ndarray
+from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QDialog
+from PySide2.QtGui import QImage, QPixmap
+from PySide2.QtCore import QRect, Qt
+
+from ui_rsa_mainpage import Ui_MainWindow
 
 msg = b'helloworld!!!'
 
@@ -44,7 +54,7 @@ def decrypt_PrivateKey(cipher_text):
         # If there's a password for Private Key, Use: Crypto.PublicKey.RSA.importKey(a, password)
         cipher_private = Crypto.Cipher.PKCS1_v1_5.new(Crypto.PublicKey.RSA.importKey(privateKey))
         text = cipher_private.decrypt(cipher_text, Crypto.Random.new().read)  # 使用私钥进行解密
-        print(text)
+        return(text)
 
 
 # Use Private Key to Sign a SHA256 Signature
@@ -71,12 +81,27 @@ def verifySign_PublicKey(sign):
         print(verify)
 
 
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+
+        # Button Signals and Slots
+        # CheckBox Signals and Slots
+
+
 if __name__ == "__main__":
     print("Hello RSA")
     # generateKeys()
-    decrypt_PrivateKey(encrypt_PublicKey())
-    verifySign_PublicKey(sign_PrivateKey())
-    # app = QtWidgets.QApplication(sys.argv)
-    # mainpage = MainWindow()
-    # mainpage.show()
-    # sys.exit(app.exec_())
+
+    print(str(decrypt_PrivateKey(encrypt_PublicKey()), 'utf-8'))
+
+    # Verify Sign
+    # decrypt_PrivateKey(encrypt_PublicKey())
+    # verifySign_PublicKey(sign_PrivateKey())
+
+    app = QtWidgets.QApplication(sys.argv)
+    mainpage = MainWindow()
+    mainpage.show()
+    sys.exit(app.exec_())
