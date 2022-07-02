@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'rsa_mainpageBbPqqo.ui'
+## Form generated from reading UI file 'rsa_mainpageKkEQKl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -25,10 +25,10 @@ class Ui_MainWindow(object):
         self.publicKeyBtn.setGeometry(QRect(650, 160, 93, 41))
         self.publicKeyLabel = QLabel(self.centralwidget)
         self.publicKeyLabel.setObjectName(u"publicKeyLabel")
-        self.publicKeyLabel.setGeometry(QRect(40, 160, 251, 16))
+        self.publicKeyLabel.setGeometry(QRect(40, 160, 601, 16))
         self.privateKeyLabel = QLabel(self.centralwidget)
         self.privateKeyLabel.setObjectName(u"privateKeyLabel")
-        self.privateKeyLabel.setGeometry(QRect(40, 230, 251, 16))
+        self.privateKeyLabel.setGeometry(QRect(40, 230, 601, 16))
         self.privateKeyBtn = QPushButton(self.centralwidget)
         self.privateKeyBtn.setObjectName(u"privateKeyBtn")
         self.privateKeyBtn.setGeometry(QRect(650, 220, 93, 41))
@@ -65,16 +65,13 @@ class Ui_MainWindow(object):
         self.line_2.setFrameShadow(QFrame.Sunken)
         self.genKeyBtn = QPushButton(self.centralwidget)
         self.genKeyBtn.setObjectName(u"genKeyBtn")
-        self.genKeyBtn.setGeometry(QRect(650, 50, 93, 51))
+        self.genKeyBtn.setGeometry(QRect(62, 50, 681, 51))
         self.genKeyLabel = QLabel(self.centralwidget)
         self.genKeyLabel.setObjectName(u"genKeyLabel")
         self.genKeyLabel.setGeometry(QRect(30, 20, 411, 16))
-        self.fileNameInput = QTextEdit(self.centralwidget)
-        self.fileNameInput.setObjectName(u"fileNameInput")
-        self.fileNameInput.setGeometry(QRect(130, 60, 201, 41))
-        self.fileNameLabel = QLabel(self.centralwidget)
-        self.fileNameLabel.setObjectName(u"fileNameLabel")
-        self.fileNameLabel.setGeometry(QRect(40, 70, 91, 16))
+        self.switchBtn = QPushButton(self.centralwidget)
+        self.switchBtn.setObjectName(u"switchBtn")
+        self.switchBtn.setGeometry(QRect(330, 490, 41, 28))
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -83,7 +80,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"SendMessageSafe\uff08\u5b89\u5fc3\u50b3\u8a0a\uff09 - RSA", None))
         self.publicKeyBtn.setText(QCoreApplication.translate("MainWindow", u"Select", None))
         self.publicKeyLabel.setText(QCoreApplication.translate("MainWindow", u"Select Public Key (.pem)", None))
         self.privateKeyLabel.setText(QCoreApplication.translate("MainWindow", u"Select Private Key (.pem)", None))
@@ -93,8 +90,8 @@ class Ui_MainWindow(object):
         self.aboutLabel.setText(QCoreApplication.translate("MainWindow", u"Marco Cheung @ 2022, https://github.com/marc0cheung", None))
         self.msgLabel.setText(QCoreApplication.translate("MainWindow", u"Message:", None))
         self.outputLabel.setText(QCoreApplication.translate("MainWindow", u"Output:", None))
-        self.genKeyBtn.setText(QCoreApplication.translate("MainWindow", u"Generate", None))
-        self.genKeyLabel.setText(QCoreApplication.translate("MainWindow", u"1. Generate Public and Private Keys:", None))
-        self.fileNameLabel.setText(QCoreApplication.translate("MainWindow", u"FileName:", None))
+        self.genKeyBtn.setText(QCoreApplication.translate("MainWindow", u"Generate RSA Public and Private Keys", None))
+        self.genKeyLabel.setText(QCoreApplication.translate("MainWindow", u"Generate Public and Private Keys:", None))
+        self.switchBtn.setText(QCoreApplication.translate("MainWindow", u"\u21f5", None))
     # retranslateUi
 

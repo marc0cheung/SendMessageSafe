@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>SendMessageSafe（安心傳訊） - RSA</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="publicKeyBtn">
@@ -32,7 +32,7 @@
      <rect>
       <x>40</x>
       <y>160</y>
-      <width>251</width>
+      <width>601</width>
       <height>16</height>
      </rect>
     </property>
@@ -45,7 +45,7 @@
      <rect>
       <x>40</x>
       <y>230</y>
-      <width>251</width>
+      <width>601</width>
       <height>16</height>
      </rect>
     </property>
@@ -180,14 +180,14 @@
    <widget class="QPushButton" name="genKeyBtn">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>62</x>
       <y>50</y>
-      <width>93</width>
+      <width>681</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Generate</string>
+     <string>Generate RSA Public and Private Keys</string>
     </property>
    </widget>
    <widget class="QLabel" name="genKeyLabel">
@@ -200,30 +200,20 @@
      </rect>
     </property>
     <property name="text">
-     <string>1. Generate Public and Private Keys:</string>
+     <string>Generate Public and Private Keys:</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="fileNameInput">
+   <widget class="QPushButton" name="switchBtn">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>60</y>
-      <width>201</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="fileNameLabel">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>70</y>
-      <width>91</width>
-      <height>16</height>
+      <x>330</x>
+      <y>490</y>
+      <width>41</width>
+      <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>FileName:</string>
+     <string>⇵</string>
     </property>
    </widget>
   </widget>
