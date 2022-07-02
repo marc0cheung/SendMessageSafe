@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Time    : 30-06-2022, 16:30 HKT
+# @Time    : 02-07-2022, 9:55 HKT
 # @Author  : marc0cheung
 # @Site    : https://marc0cheung.github.io/projects
 # @File    : rsa.py
@@ -7,6 +7,7 @@
 
 import sys
 import base64
+import pyperclip
 
 import Crypto.PublicKey.RSA
 import Crypto.Cipher.PKCS1_v1_5
@@ -21,8 +22,6 @@ from PySide2.QtGui import QImage, QPixmap, QIcon
 from PySide2.QtCore import QRect, Qt
 
 from ui_rsa_mainpage import Ui_MainWindow
-
-msg = '一台独立服务器'
 
 
 # Use Crypto to Generate Public and Private Keys (.pem files)
@@ -42,6 +41,7 @@ def generateKeys():
 # Use public key to encrypt
 def encrypt_PublicKey():
     with open("publicKey.pem", "rb") as pemFile:
+        msg = "一台独立服务器"
         publicKey = pemFile.read()
         cipher_public = Crypto.Cipher.PKCS1_v1_5.new(Crypto.PublicKey.RSA.importKey(publicKey))
         cipher_text = cipher_public.encrypt(msg.encode('utf-8'))
@@ -62,6 +62,7 @@ def decrypt_PrivateKey(cipher_text):
 # Use Private Key to Sign a SHA256 Signature
 def sign_PrivateKey():
     with open("privateKey.pem", "rb") as pemFile:
+        msg = "一台独立服务器"
         c = pemFile.read()
         c_rsa = Crypto.PublicKey.RSA.importKey(c)
         signer = Crypto.Signature.PKCS1_v1_5.new(c_rsa)
@@ -74,6 +75,7 @@ def sign_PrivateKey():
 # Verify Sign Using Public Key
 def verifySign_PublicKey(sign):
     with open("publicKey.pem", "rb") as pemFile:
+        msg = "一台独立服务器"
         d = pemFile.read()
         d_rsa = Crypto.PublicKey.RSA.importKey(d)
         verifer = Crypto.Signature.PKCS1_v1_5.new(d_rsa)
@@ -104,8 +106,14 @@ class MainWindow(QMainWindow):
         self.ui.decryptBtn.clicked.connect(self.onDecryptBtn_Clicked)
 
         self.ui.switchBtn.clicked.connect(self.onSwitchBtn_Clicked)
+        self.ui.copyInputBtn.clicked.connect(self.onCopyInputBtn_Clicked)
+        self.ui.pasteInputBtn.clicked.connect(self.onPasteInputBtn_Clicked)
+        self.ui.copyOutputBtn.clicked.connect(self.onCopyOutputBtn_Clicked)
+        self.ui.clearBtn.clicked.connect(self.clearInput)
+        self.ui.clearBtn_2.clicked.connect(self.clearOutput)
 
         # CheckBox Signals and Slots
+        self.ui.onTopCheckBox.stateChanged.connect(self.setAlwaysOnTop)
 
     def onPublicKeyBtn_Clicked(self):
         source = QFileDialog.getOpenFileName(QDialog(), "Select Public Key")
@@ -123,6 +131,29 @@ class MainWindow(QMainWindow):
         temp = self.ui.input.toPlainText()
         self.ui.input.setText(self.ui.output.toPlainText())  # Output msg to Input msg
         self.ui.output.setText(temp)
+
+    def onCopyInputBtn_Clicked(self):
+        pyperclip.copy(self.ui.input.toPlainText())
+
+    def onPasteInputBtn_Clicked(self):
+        cipher_text = pyperclip.paste()
+        self.ui.input.setText(cipher_text)
+
+    def onCopyOutputBtn_Clicked(self):
+        pyperclip.copy(self.ui.input.toPlainText())
+
+    def setAlwaysOnTop(self):
+        # Bug Here
+        if self.ui.onTopCheckBox.checkState() == Qt.Checked:
+            self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+        elif self.ui.onTopCheckBox.checkState() == Qt.Unchecked:
+            self.setWindowFlags(QtCore.Qt.Widget)
+
+    def clearInput(self):
+        self.ui.input.clear()
+
+    def clearOutput(self):
+        self.ui.output.clear()
 
     def onEncryptBtn_Clicked(self):
         msg = self.ui.input.toPlainText()
@@ -143,7 +174,11 @@ class MainWindow(QMainWindow):
 
     def onDecryptBtn_Clicked(self):
         # Use Private Key to Decrypt Message
-        cipher_text_base64 = self.ui.input.toPlainText().encode('utf-8')  # BUG HERE!!!
+        if self.text_encrypted_base64 is not None:
+            cipher_text_base64 = self.ui.input.toPlainText().encode('utf-8')
+        else:
+            cipher_text_base64 = self.text_encrypted_base64
+
         cipher_text = base64.b64decode(cipher_text_base64)
 
         if self.privateKeySource != "":

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'rsa_mainpageKkEQKl.ui'
+## Form generated from reading UI file 'rsa_mainpagehPnRcu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.decryptBtn.setGeometry(QRect(680, 540, 93, 71))
         self.aboutLabel = QLabel(self.centralwidget)
         self.aboutLabel.setObjectName(u"aboutLabel")
-        self.aboutLabel.setGeometry(QRect(360, 710, 431, 20))
+        self.aboutLabel.setGeometry(QRect(370, 720, 431, 20))
         self.msgLabel = QLabel(self.centralwidget)
         self.msgLabel.setObjectName(u"msgLabel")
         self.msgLabel.setGeometry(QRect(50, 290, 111, 16))
@@ -72,6 +72,24 @@ class Ui_MainWindow(object):
         self.switchBtn = QPushButton(self.centralwidget)
         self.switchBtn.setObjectName(u"switchBtn")
         self.switchBtn.setGeometry(QRect(330, 490, 41, 28))
+        self.copyInputBtn = QPushButton(self.centralwidget)
+        self.copyInputBtn.setObjectName(u"copyInputBtn")
+        self.copyInputBtn.setGeometry(QRect(660, 320, 61, 28))
+        self.copyOutputBtn = QPushButton(self.centralwidget)
+        self.copyOutputBtn.setObjectName(u"copyOutputBtn")
+        self.copyOutputBtn.setGeometry(QRect(660, 640, 61, 28))
+        self.pasteInputBtn = QPushButton(self.centralwidget)
+        self.pasteInputBtn.setObjectName(u"pasteInputBtn")
+        self.pasteInputBtn.setGeometry(QRect(660, 350, 61, 28))
+        self.clearBtn = QPushButton(self.centralwidget)
+        self.clearBtn.setObjectName(u"clearBtn")
+        self.clearBtn.setGeometry(QRect(660, 380, 61, 28))
+        self.clearBtn_2 = QPushButton(self.centralwidget)
+        self.clearBtn_2.setObjectName(u"clearBtn_2")
+        self.clearBtn_2.setGeometry(QRect(660, 670, 61, 28))
+        self.onTopCheckBox = QCheckBox(self.centralwidget)
+        self.onTopCheckBox.setObjectName(u"onTopCheckBox")
+        self.onTopCheckBox.setGeometry(QRect(20, 710, 211, 19))
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -93,5 +111,11 @@ class Ui_MainWindow(object):
         self.genKeyBtn.setText(QCoreApplication.translate("MainWindow", u"Generate RSA Public and Private Keys", None))
         self.genKeyLabel.setText(QCoreApplication.translate("MainWindow", u"Generate Public and Private Keys:", None))
         self.switchBtn.setText(QCoreApplication.translate("MainWindow", u"\u21f5", None))
+        self.copyInputBtn.setText(QCoreApplication.translate("MainWindow", u"Copy", None))
+        self.copyOutputBtn.setText(QCoreApplication.translate("MainWindow", u"Copy", None))
+        self.pasteInputBtn.setText(QCoreApplication.translate("MainWindow", u"Paste", None))
+        self.clearBtn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.clearBtn_2.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.onTopCheckBox.setText(QCoreApplication.translate("MainWindow", u"Always on Top", None))
     # retranslateUi
 

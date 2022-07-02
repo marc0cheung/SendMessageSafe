@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+# @Time    : 02-07-2022, 9:55 HKT
+# @Author  : marc0cheung
+# @Site    : https://marc0cheung.github.io/projects
+# @File    : rsa_console.py
+# @Software: SendMessageSafe
+
 import base64
 from Crypto.Cipher import PKCS1_v1_5
 from Crypto import Random
