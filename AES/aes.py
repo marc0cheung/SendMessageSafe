@@ -5,7 +5,6 @@
 # @File    : aes.py
 # @Software: SendMessageSafe
 
-
 import sys
 import base64
 import secrets
@@ -15,7 +14,7 @@ from Crypto.Cipher import AES
 from PySide2 import QtCore, QtGui, QtWidgets
 import qimage2ndarray
 from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QDialog
-from PySide2.QtGui import QImage, QPixmap
+from PySide2.QtGui import QImage, QPixmap, QIcon
 from PySide2.QtCore import QRect, Qt
 
 from ui_aes_mainpage import Ui_MainWindow
@@ -60,6 +59,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.setWindowIcon(QIcon('icon.png'))
 
         # Push Buttons Signals and Slots
         self.ui.confirmBtn.clicked.connect(self.onConfirmBtnClicked)
