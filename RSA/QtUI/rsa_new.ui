@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>924</width>
+    <height>705</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SendMessageSafe（安心傳訊）- RSA</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QSplitter" name="splitter_12">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QSplitter" name="splitter_11">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QWidget" name="">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="genKeyLabel">
+           <property name="text">
+            <string>Generate Public and Private Keys:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="genKeyBtn">
+           <property name="minimumSize">
+            <size>
+             <width>341</width>
+             <height>61</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>341</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Generate RSA Public and Private Keys</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QSplitter" name="splitter">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QLabel" name="publicKeyLabel">
+            <property name="text">
+             <string>Select Public Key (.pem)</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="publicKeyBtn">
+            <property name="text">
+             <string>Select</string>
+            </property>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSplitter" name="splitter_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QLabel" name="privateKeyLabel">
+            <property name="text">
+             <string>Select Private Key (.pem)</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="privateKeyBtn">
+            <property name="text">
+             <string>Select</string>
+            </property>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QSplitter" name="splitter_10">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QWidget" name="">
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QSplitter" name="splitter_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QSplitter" name="splitter_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <widget class="QLabel" name="msgLabel">
+             <property name="text">
+              <string>Message:</string>
+             </property>
+            </widget>
+            <widget class="QTextEdit" name="input"/>
+           </widget>
+           <widget class="QSplitter" name="splitter_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <widget class="QPushButton" name="copyInputBtn">
+             <property name="text">
+              <string>Copy</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="pasteInputBtn">
+             <property name="text">
+              <string>Paste</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="clearBtn">
+             <property name="text">
+              <string>Clear</string>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="switchBtn">
+           <property name="text">
+            <string>⇵</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSplitter" name="splitter_8">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QSplitter" name="splitter_6">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <widget class="QLabel" name="outputLabel">
+             <property name="text">
+              <string>Output:</string>
+             </property>
+            </widget>
+            <widget class="QTextEdit" name="output"/>
+           </widget>
+           <widget class="QSplitter" name="splitter_7">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <widget class="QPushButton" name="copyOutputBtn">
+             <property name="text">
+              <string>Copy</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="clearBtn_2">
+             <property name="text">
+              <string>Clear</string>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QSplitter" name="splitter_9">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <widget class="QPushButton" name="encryptBtn">
+         <property name="text">
+          <string>Encrypt</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="decryptBtn">
+         <property name="text">
+          <string>Decrypt</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
