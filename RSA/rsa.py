@@ -5,6 +5,7 @@
 # @File    : rsa.py
 # @Software: SendMessageSafe
 
+import os
 import sys
 import base64
 import pyperclip
@@ -16,12 +17,16 @@ import Crypto.Signature.PKCS1_v1_5
 import Crypto.Hash
 
 from PySide2 import QtCore, QtGui, QtWidgets
-import qimage2ndarray
+# import qimage2ndarray
 from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QDialog
 from PySide2.QtGui import QImage, QPixmap, QIcon
 from PySide2.QtCore import QRect, Qt
 
 from ui_rsa_mainpage import Ui_MainWindow
+
+# IF RUNNING ON macOS
+import platform
+os.environ['QT_MAC_WANTS_LAYER'] = '1'
 
 
 # Use Crypto to Generate Public and Private Keys (.pem files)

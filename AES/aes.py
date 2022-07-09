@@ -4,7 +4,7 @@
 # @Site    : https://marc0cheung.github.io/projects
 # @File    : aes.py
 # @Software: SendMessageSafe
-
+import os
 import sys
 import base64
 import secrets
@@ -12,12 +12,16 @@ import secrets
 from Crypto.Cipher import AES
 
 from PySide2 import QtCore, QtGui, QtWidgets
-import qimage2ndarray
+# import qimage2ndarray
 from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QDialog
 from PySide2.QtGui import QImage, QPixmap, QIcon
 from PySide2.QtCore import QRect, Qt
 
 from ui_aes_mainpage import Ui_MainWindow
+
+# IF RUNNING ON macOS
+import platform
+os.environ['QT_MAC_WANTS_LAYER'] = '1'
 
 
 def aes_encrypt(encrypt_key, source_data):
