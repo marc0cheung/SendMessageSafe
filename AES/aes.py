@@ -70,7 +70,7 @@ class MainWindow(QMainWindow):
         self.ui.encryptBtn.clicked.connect(self.encrypt)
         self.ui.decryptBtn.clicked.connect(self.decrypt)
 
-        # CheckBox Signalss and Slots
+        # CheckBox Signals and Slots
         self.ui.RandomCheckBox.stateChanged.connect(self.onRandomCheckBox_Changed)
 
     def encrypt(self):
@@ -82,7 +82,7 @@ class MainWindow(QMainWindow):
             # print("Original Message(Based64): " + str(original_msg, 'utf-8'))  # Debugging
 
             # AES Encrypt
-            key = str(self.ui.key_input.toPlainText())
+            key = str(self.ui.key_input.text())
             # Must Use 5L2g5aW9 instead of b'5L2g5aW9' to encrypt!
             data = str(original_msg, 'utf-8')
             enctext = aes_encrypt(key, data)
@@ -95,7 +95,7 @@ class MainWindow(QMainWindow):
 
             # Get Original Message
             data = str(self.ui.msg_input.toPlainText())
-            key = str(self.ui.key_input.toPlainText())
+            key = str(self.ui.key_input.text())
 
             # AES Encrypt Random Times
             for i in range(0, encrypt_times):
@@ -109,14 +109,14 @@ class MainWindow(QMainWindow):
             self.encrypted_data = str(self.ui.msg_input.toPlainText())
 
             # AES Decrypt
-            self.encrypt_key = str(self.ui.key_input.toPlainText())
+            self.encrypt_key = str(self.ui.key_input.text())
             msg_decrypted = aes_decrypt(self.encrypt_key, self.encrypted_data)
 
             # Base64 Decode
             self.ui.output.setText(str(base64.b64decode(msg_decrypted), 'utf-8'))
 
         elif self.randomEncrypt:
-            self.encrypt_key = str(self.ui.key_input.toPlainText())
+            self.encrypt_key = str(self.ui.key_input.text())
             # Remove the last number of the encrypted message
             encrypted_msg = str(self.ui.msg_input.toPlainText())[:-1]
             # Pending: If the last one is not number then throw Error
@@ -130,8 +130,8 @@ class MainWindow(QMainWindow):
             self.ui.output.setText(encrypted_msg)
 
     def onConfirmBtnClicked(self):
-        self.vi = str(self.ui.vi_input.toPlainText())
-        self.encrypt_key = str(self.ui.key_input.toPlainText())
+        self.vi = str(self.ui.vi_input.text())
+        self.encrypt_key = str(self.ui.key_input.text())
         popup_msg = "Vi: " + self.vi + "\nKey: " + self.encrypt_key
         QMessageBox.information(self, "Vi and Key Set", popup_msg)
 
