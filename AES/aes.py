@@ -9,6 +9,7 @@ import sys
 import base64
 import secrets
 # pip install pycryptodome
+import pyperclip
 from Crypto.Cipher import AES
 
 from PySide2 import QtCore, QtGui, QtWidgets
@@ -71,6 +72,14 @@ class MainWindow(QMainWindow):
         self.ui.exchangeBtn.clicked.connect(self.onExchangeBtn_Clicked)
         self.ui.encryptBtn.clicked.connect(self.encrypt)
         self.ui.decryptBtn.clicked.connect(self.decrypt)
+
+        self.ui.Copy_Decrypted.clicked.connect(self.onDecryptedCopyBtn_Clicked)
+        self.ui.Paste_Decrypted.clicked.connect(self.onDecryptedPasteBtn_Clicked)
+        self.ui.Clear_Decrypted.clicked.connect(self.onDecryptedClearBtn_Clicked)
+
+        self.ui.Copy_Encrypted.clicked.connect(self.onEncryptedCopyBtn_Clicked)
+        self.ui.Paste_Encrypted.clicked.connect(self.onEncryptedPasteBtn_Clicked)
+        self.ui.Clear_Encrypted.clicked.connect(self.onEncryptedClearBtn_Clicked)
 
         # CheckBox Signals and Slots
         self.ui.RandomCheckBox.stateChanged.connect(self.onRandomCheckBox_Changed)
@@ -147,6 +156,26 @@ class MainWindow(QMainWindow):
         temp = self.ui.output.toPlainText()
         self.ui.output.setText(self.ui.msg_input.toPlainText())
         self.ui.msg_input.setText(temp)
+
+    def onDecryptedCopyBtn_Clicked(self):
+        pyperclip.copy(self.ui.msg_input.toPlainText())
+
+    def onDecryptedPasteBtn_Clicked(self):
+        text = pyperclip.paste()
+        self.ui.msg_input.setText(text)
+
+    def onDecryptedClearBtn_Clicked(self):
+        self.ui.msg_input.clear()
+
+    def onEncryptedCopyBtn_Clicked(self):
+        pyperclip.copy(self.ui.output.toPlainText())
+
+    def onEncryptedPasteBtn_Clicked(self):
+        text = pyperclip.paste()
+        self.ui.output.setText(text)
+
+    def onEncryptedClearBtn_Clicked(self):
+        self.ui.output.clear()
 
 
 if __name__ == "__main__":
