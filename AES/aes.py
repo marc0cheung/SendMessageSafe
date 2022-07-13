@@ -64,9 +64,11 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowIcon(QIcon('icon.png'))
+        self.ui.statusbar.showMessage("Marco Cheung @ 2022,  https://github.com/marc0cheung/SendMessageSafe/")
 
         # Push Buttons Signals and Slots
         self.ui.confirmBtn.clicked.connect(self.onConfirmBtnClicked)
+        self.ui.exchangeBtn.clicked.connect(self.onExchangeBtn_Clicked)
         self.ui.encryptBtn.clicked.connect(self.encrypt)
         self.ui.decryptBtn.clicked.connect(self.decrypt)
 
@@ -106,28 +108,28 @@ class MainWindow(QMainWindow):
 
     def decrypt(self):
         if not self.randomEncrypt:
-            self.encrypted_data = str(self.ui.msg_input.toPlainText())
+            self.encrypted_data = str(self.ui.output.toPlainText())
 
             # AES Decrypt
             self.encrypt_key = str(self.ui.key_input.text())
             msg_decrypted = aes_decrypt(self.encrypt_key, self.encrypted_data)
 
             # Base64 Decode
-            self.ui.output.setText(str(base64.b64decode(msg_decrypted), 'utf-8'))
+            self.ui.msg_input.setText(str(base64.b64decode(msg_decrypted), 'utf-8'))
 
         elif self.randomEncrypt:
             self.encrypt_key = str(self.ui.key_input.text())
             # Remove the last number of the encrypted message
-            encrypted_msg = str(self.ui.msg_input.toPlainText())[:-1]
+            encrypted_msg = str(self.ui.output.toPlainText())[:-1]
             # Pending: If the last one is not number then throw Error
-            encrypted_times = int(str(self.ui.msg_input.toPlainText())[-1:])
+            encrypted_times = int(str(self.ui.output.toPlainText())[-1:])
 
             # AES Decrypt Random Times
             for i in range(0, encrypted_times):
                 encrypted_msg = aes_decrypt(self.encrypt_key, encrypted_msg)
                 encrypted_msg = str(base64.b64decode(encrypted_msg), 'utf-8')
 
-            self.ui.output.setText(encrypted_msg)
+            self.ui.msg_input.setText(encrypted_msg)
 
     def onConfirmBtnClicked(self):
         self.vi = str(self.ui.vi_input.text())
@@ -140,6 +142,11 @@ class MainWindow(QMainWindow):
             self.randomEncrypt = True
         elif self.ui.RandomCheckBox.checkState() == Qt.Unchecked:
             self.randomEncrypt = False
+
+    def onExchangeBtn_Clicked(self):
+        temp = self.ui.output.toPlainText()
+        self.ui.output.setText(self.ui.msg_input.toPlainText())
+        self.ui.msg_input.setText(temp)
 
 
 if __name__ == "__main__":
