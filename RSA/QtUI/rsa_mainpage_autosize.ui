@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_5">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_4">
+     <layout class="QVBoxLayout" name="verticalLayout_Up">
       <item>
        <widget class="QWidget" name="genKey_Widget" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -28,7 +28,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit">
+          <widget class="QLineEdit" name="KeyFilenameInput">
            <property name="text">
             <string/>
            </property>
@@ -132,7 +132,7 @@
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <layout class="QHBoxLayout" name="horizontalLayout_Down">
       <item>
        <widget class="QWidget" name="Msg_Widget" native="true">
         <layout class="QVBoxLayout" name="verticalLayout">
@@ -164,7 +164,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="clearBtn">
+             <widget class="QPushButton" name="clearInputBtn">
               <property name="text">
                <string>Clear</string>
               </property>
@@ -253,21 +253,21 @@
           <widget class="QWidget" name="OutputBtn_Widget" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
-             <widget class="QPushButton" name="copyInputBtn_2">
+             <widget class="QPushButton" name="copyOutputBtn">
               <property name="text">
                <string>Copy</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pasteInputBtn_2">
+             <widget class="QPushButton" name="pasteOutputBtn">
               <property name="text">
                <string>Paste</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="clearBtn_2">
+             <widget class="QPushButton" name="clearOutputBtn">
               <property name="text">
                <string>Clear</string>
               </property>

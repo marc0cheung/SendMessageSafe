@@ -22,8 +22,8 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_5 = QVBoxLayout(self.centralwidget)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_4 = QVBoxLayout()
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_Up = QVBoxLayout()
+        self.verticalLayout_Up.setObjectName(u"verticalLayout_Up")
         self.genKey_Widget = QWidget(self.centralwidget)
         self.genKey_Widget.setObjectName(u"genKey_Widget")
         self.horizontalLayout_5 = QHBoxLayout(self.genKey_Widget)
@@ -33,12 +33,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_5.addWidget(self.genKeyLabel)
 
-        self.lineEdit = QLineEdit(self.genKey_Widget)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setMaxLength(60)
-        self.lineEdit.setAlignment(Qt.AlignCenter)
+        self.KeyFilenameInput = QLineEdit(self.genKey_Widget)
+        self.KeyFilenameInput.setObjectName(u"KeyFilenameInput")
+        self.KeyFilenameInput.setMaxLength(60)
+        self.KeyFilenameInput.setAlignment(Qt.AlignCenter)
 
-        self.horizontalLayout_5.addWidget(self.lineEdit)
+        self.horizontalLayout_5.addWidget(self.KeyFilenameInput)
 
         self.genKeyBtn = QPushButton(self.genKey_Widget)
         self.genKeyBtn.setObjectName(u"genKeyBtn")
@@ -48,7 +48,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.addWidget(self.genKeyBtn)
 
 
-        self.verticalLayout_4.addWidget(self.genKey_Widget)
+        self.verticalLayout_Up.addWidget(self.genKey_Widget)
 
         self.PubKeySelector_Widget = QWidget(self.centralwidget)
         self.PubKeySelector_Widget.setObjectName(u"PubKeySelector_Widget")
@@ -67,7 +67,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.publicKeyBtn)
 
 
-        self.verticalLayout_4.addWidget(self.PubKeySelector_Widget)
+        self.verticalLayout_Up.addWidget(self.PubKeySelector_Widget)
 
         self.PrivKeySelector_Widget = QWidget(self.centralwidget)
         self.PrivKeySelector_Widget.setObjectName(u"PrivKeySelector_Widget")
@@ -86,13 +86,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.privateKeyBtn)
 
 
-        self.verticalLayout_4.addWidget(self.PrivKeySelector_Widget)
+        self.verticalLayout_Up.addWidget(self.PrivKeySelector_Widget)
 
 
-        self.verticalLayout_5.addLayout(self.verticalLayout_4)
+        self.verticalLayout_5.addLayout(self.verticalLayout_Up)
 
-        self.horizontalLayout_6 = QHBoxLayout()
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalLayout_Down = QHBoxLayout()
+        self.horizontalLayout_Down.setObjectName(u"horizontalLayout_Down")
         self.Msg_Widget = QWidget(self.centralwidget)
         self.Msg_Widget.setObjectName(u"Msg_Widget")
         self.verticalLayout = QVBoxLayout(self.Msg_Widget)
@@ -121,16 +121,16 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.pasteInputBtn)
 
-        self.clearBtn = QPushButton(self.MsgBtn_Widget)
-        self.clearBtn.setObjectName(u"clearBtn")
+        self.clearInputBtn = QPushButton(self.MsgBtn_Widget)
+        self.clearInputBtn.setObjectName(u"clearInputBtn")
 
-        self.horizontalLayout_3.addWidget(self.clearBtn)
+        self.horizontalLayout_3.addWidget(self.clearInputBtn)
 
 
         self.verticalLayout.addWidget(self.MsgBtn_Widget)
 
 
-        self.horizontalLayout_6.addWidget(self.Msg_Widget)
+        self.horizontalLayout_Down.addWidget(self.Msg_Widget)
 
         self.ControlBtn_Widget = QWidget(self.centralwidget)
         self.ControlBtn_Widget.setObjectName(u"ControlBtn_Widget")
@@ -165,7 +165,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addItem(self.verticalSpacer)
 
 
-        self.horizontalLayout_6.addWidget(self.ControlBtn_Widget)
+        self.horizontalLayout_Down.addWidget(self.ControlBtn_Widget)
 
         self.Output_Widget = QWidget(self.centralwidget)
         self.Output_Widget.setObjectName(u"Output_Widget")
@@ -185,29 +185,29 @@ class Ui_MainWindow(object):
         self.OutputBtn_Widget.setObjectName(u"OutputBtn_Widget")
         self.horizontalLayout_4 = QHBoxLayout(self.OutputBtn_Widget)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.copyInputBtn_2 = QPushButton(self.OutputBtn_Widget)
-        self.copyInputBtn_2.setObjectName(u"copyInputBtn_2")
+        self.copyOutputBtn = QPushButton(self.OutputBtn_Widget)
+        self.copyOutputBtn.setObjectName(u"copyOutputBtn")
 
-        self.horizontalLayout_4.addWidget(self.copyInputBtn_2)
+        self.horizontalLayout_4.addWidget(self.copyOutputBtn)
 
-        self.pasteInputBtn_2 = QPushButton(self.OutputBtn_Widget)
-        self.pasteInputBtn_2.setObjectName(u"pasteInputBtn_2")
+        self.pasteOutputBtn = QPushButton(self.OutputBtn_Widget)
+        self.pasteOutputBtn.setObjectName(u"pasteOutputBtn")
 
-        self.horizontalLayout_4.addWidget(self.pasteInputBtn_2)
+        self.horizontalLayout_4.addWidget(self.pasteOutputBtn)
 
-        self.clearBtn_2 = QPushButton(self.OutputBtn_Widget)
-        self.clearBtn_2.setObjectName(u"clearBtn_2")
+        self.clearOutputBtn = QPushButton(self.OutputBtn_Widget)
+        self.clearOutputBtn.setObjectName(u"clearOutputBtn")
 
-        self.horizontalLayout_4.addWidget(self.clearBtn_2)
+        self.horizontalLayout_4.addWidget(self.clearOutputBtn)
 
 
         self.verticalLayout_2.addWidget(self.OutputBtn_Widget)
 
 
-        self.horizontalLayout_6.addWidget(self.Output_Widget)
+        self.horizontalLayout_Down.addWidget(self.Output_Widget)
 
 
-        self.verticalLayout_5.addLayout(self.horizontalLayout_6)
+        self.verticalLayout_5.addLayout(self.horizontalLayout_Down)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(MainWindow)
@@ -222,8 +222,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"SendMessageSafe | \u5b89\u5fc3\u50b3\u8a0a | RSA Version", None))
         self.genKeyLabel.setText(QCoreApplication.translate("MainWindow", u"Generate Public and Private Keys:", None))
-        self.lineEdit.setText("")
-        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"KeyFileName", None))
+        self.KeyFilenameInput.setText("")
+        self.KeyFilenameInput.setPlaceholderText(QCoreApplication.translate("MainWindow", u"KeyFileName", None))
         self.genKeyBtn.setText(QCoreApplication.translate("MainWindow", u"Generate", None))
         self.publicKeyLabel.setText(QCoreApplication.translate("MainWindow", u"Select Public Key (a .pem file you received)", None))
         self.publicKeyBtn.setText(QCoreApplication.translate("MainWindow", u"Select", None))
@@ -232,14 +232,14 @@ class Ui_MainWindow(object):
         self.msgLabel.setText(QCoreApplication.translate("MainWindow", u"Message:", None))
         self.copyInputBtn.setText(QCoreApplication.translate("MainWindow", u"Copy", None))
         self.pasteInputBtn.setText(QCoreApplication.translate("MainWindow", u"Paste", None))
-        self.clearBtn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.clearInputBtn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
         self.onTopCheckBox.setText(QCoreApplication.translate("MainWindow", u"Always on Top", None))
         self.encryptBtn.setText(QCoreApplication.translate("MainWindow", u"Encrypt", None))
         self.decryptBtn.setText(QCoreApplication.translate("MainWindow", u"Decrypt", None))
         self.switchBtn.setText(QCoreApplication.translate("MainWindow", u"\u21b9", None))
         self.outputLabel.setText(QCoreApplication.translate("MainWindow", u"Output:", None))
-        self.copyInputBtn_2.setText(QCoreApplication.translate("MainWindow", u"Copy", None))
-        self.pasteInputBtn_2.setText(QCoreApplication.translate("MainWindow", u"Paste", None))
-        self.clearBtn_2.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.copyOutputBtn.setText(QCoreApplication.translate("MainWindow", u"Copy", None))
+        self.pasteOutputBtn.setText(QCoreApplication.translate("MainWindow", u"Paste", None))
+        self.clearOutputBtn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
     # retranslateUi
 
