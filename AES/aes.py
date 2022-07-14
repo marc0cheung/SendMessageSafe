@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Time    : 30-06-2022, 11:36
+# @Time    : 14-07-2022, 18:06 HKT
 # @Author  : marc0cheung
 # @Site    : https://marc0cheung.github.io/projects
 # @File    : aes.py
@@ -12,16 +12,14 @@ import secrets
 import pyperclip
 from Crypto.Cipher import AES
 
-from PySide2 import QtCore, QtGui, QtWidgets
-# import qimage2ndarray
+from PySide2 import QtWidgets
 from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QDialog
-from PySide2.QtGui import QImage, QPixmap, QIcon
-from PySide2.QtCore import QRect, Qt
+from PySide2.QtGui import QIcon
+from PySide2.QtCore import Qt
 
 from ui_aes_mainpage import Ui_MainWindow
 
-# IF RUNNING ON macOS
-import platform
+# IF RUNNING ON macOS, Uncomment Line 24 (Below)
 os.environ['QT_MAC_WANTS_LAYER'] = '1'
 
 

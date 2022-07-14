@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# @Time    : 02-07-2022, 9:55 HKT
+# @Time    : 14-07-2022, 18:06 HKT
 # @Author  : marc0cheung
 # @Site    : https://marc0cheung.github.io/projects
 # @File    : rsa.py
 # @Software: SendMessageSafe
-
+import binascii
 import os
 import sys
 import base64
@@ -16,16 +16,14 @@ import Crypto.Random
 import Crypto.Signature.PKCS1_v1_5
 import Crypto.Hash
 
-from PySide2 import QtCore, QtGui, QtWidgets
-# import qimage2ndarray
+from PySide2 import QtCore, QtWidgets
 from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QDialog
-from PySide2.QtGui import QImage, QPixmap, QIcon
-from PySide2.QtCore import QRect, Qt
+from PySide2.QtGui import QIcon
+from PySide2.QtCore import Qt
 
 from ui_rsa_mainpage import Ui_MainWindow
 
-# IF RUNNING ON macOS
-import platform
+# IF RUNNING ON macOS, Uncomment Line 27 (Below)
 os.environ['QT_MAC_WANTS_LAYER'] = '1'
 
 
@@ -127,6 +125,10 @@ class MainWindow(QMainWindow):
     # Use Crypto to Generate Public and Private Keys (.pem files)
     def genKeysWithNames(self):
         filename = self.ui.KeyFilenameInput.text()
+        if filename == "":
+            QMessageBox.information(self, "No filenames received", "Use a_privateKey and a_publicKey as default.")
+            filename = "a"
+
         savePath = QFileDialog.getExistingDirectory(QDialog(), "Choose Save Directory")
         x = Crypto.PublicKey.RSA.generate(2048)
         #  Crypto.PublicKey.RSA.generate(2048, Crypto.Random.new().read)
@@ -200,23 +202,26 @@ class MainWindow(QMainWindow):
             QMessageBox.critical(self, "No Public Key Found", "Select the public key you received")
 
     def onDecryptBtn_Clicked(self):
-        # Use Private Key to Decrypt Message
-        if self.text_encrypted_base64 is not None:
-            cipher_text_base64 = self.ui.input.toPlainText().encode('utf-8')
-        else:
-            cipher_text_base64 = self.text_encrypted_base64
-
-        cipher_text = base64.b64decode(cipher_text_base64)
-
         if self.privateKeySource != "":
-            # Use Private Key to Decrypt Cipher Message
-            with open(self.privateKeySource, "rb") as pemFile:
-                privateKey = pemFile.read()
-                # If there's a password for Private Key, Use: Crypto.PublicKey.RSA.importKey(a, password)
-                cipher_private = Crypto.Cipher.PKCS1_v1_5.new(Crypto.PublicKey.RSA.importKey(privateKey))
-                text_decrypted = cipher_private.decrypt(cipher_text, Crypto.Random.new().read)  # 使用私钥进行解密
-                text_decrypted = text_decrypted.decode()
-                self.ui.output.setText(text_decrypted)
+            try:
+                # Use Private Key to Decrypt Message
+                if self.text_encrypted_base64 is not None:
+                    cipher_text_base64 = self.ui.input.toPlainText().encode('utf-8')
+                else:
+                    cipher_text_base64 = self.text_encrypted_base64
+
+                cipher_text = base64.b64decode(cipher_text_base64)
+
+                # Use Private Key to Decrypt Cipher Message
+                with open(self.privateKeySource, "rb") as pemFile:
+                    privateKey = pemFile.read()
+                    # If there's a password for Private Key, Use: Crypto.PublicKey.RSA.importKey(a, password)
+                    cipher_private = Crypto.Cipher.PKCS1_v1_5.new(Crypto.PublicKey.RSA.importKey(privateKey))
+                    text_decrypted = cipher_private.decrypt(cipher_text, Crypto.Random.new().read)  # 使用私钥进行解密
+                    text_decrypted = text_decrypted.decode()
+                    self.ui.output.setText(text_decrypted)
+            except binascii.Error:
+                QMessageBox.critical(self, "Don't Mess Up the App!", "The Encrypted Message is NOT supported.")
         else:
             QMessageBox.critical(self, "Private Key Not Found", "Select your private key")
 
