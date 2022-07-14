@@ -46,7 +46,7 @@ def generateKeys():
 # Use public key to encrypt
 def encrypt_PublicKey():
     with open("publicKey.pem", "rb") as pemFile:
-        msg = "一台独立服务器"
+        msg = "一台獨立服務器"
         publicKey = pemFile.read()
         cipher_public = Crypto.Cipher.PKCS1_v1_5.new(Crypto.PublicKey.RSA.importKey(publicKey))
         cipher_text = cipher_public.encrypt(msg.encode('utf-8'))
@@ -67,7 +67,7 @@ def decrypt_PrivateKey(cipher_text):
 # Use Private Key to Sign a SHA256 Signature
 def sign_PrivateKey():
     with open("privateKey.pem", "rb") as pemFile:
-        msg = "一台独立服务器"
+        msg = "一台獨立服務器"
         c = pemFile.read()
         c_rsa = Crypto.PublicKey.RSA.importKey(c)
         signer = Crypto.Signature.PKCS1_v1_5.new(c_rsa)
@@ -80,7 +80,7 @@ def sign_PrivateKey():
 # Verify Sign Using Public Key
 def verifySign_PublicKey(sign):
     with open("publicKey.pem", "rb") as pemFile:
-        msg = "一台独立服务器"
+        msg = "一台獨立服務器"
         d = pemFile.read()
         d_rsa = Crypto.PublicKey.RSA.importKey(d)
         verifer = Crypto.Signature.PKCS1_v1_5.new(d_rsa)
@@ -100,9 +100,10 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowIcon(QIcon('icon.png'))
+        self.ui.statusbar.showMessage("Marco Cheung @ 2022,  https://github.com/marc0cheung/SendMessageSafe/")
 
         # Button Signals and Slots
-        self.ui.genKeyBtn.clicked.connect(generateKeys)
+        self.ui.genKeyBtn.clicked.connect(self.genKeysWithNames)
 
         self.ui.publicKeyBtn.clicked.connect(self.onPublicKeyBtn_Clicked)
         self.ui.privateKeyBtn.clicked.connect(self.onPrivateKeyBtn_Clicked)
@@ -111,14 +112,31 @@ class MainWindow(QMainWindow):
         self.ui.decryptBtn.clicked.connect(self.onDecryptBtn_Clicked)
 
         self.ui.switchBtn.clicked.connect(self.onSwitchBtn_Clicked)
+
+        # Copy, Paste and Clear Function for Message and Output Textbox
         self.ui.copyInputBtn.clicked.connect(self.onCopyInputBtn_Clicked)
         self.ui.pasteInputBtn.clicked.connect(self.onPasteInputBtn_Clicked)
+        self.ui.clearInputBtn.clicked.connect(self.clearInput)
         self.ui.copyOutputBtn.clicked.connect(self.onCopyOutputBtn_Clicked)
-        self.ui.clearBtn.clicked.connect(self.clearInput)
-        self.ui.clearBtn_2.clicked.connect(self.clearOutput)
+        self.ui.pasteOutputBtn.clicked.connect(self.onPasteOutputBtn_Clicked)
+        self.ui.clearOutputBtn.clicked.connect(self.clearOutput)
 
         # CheckBox Signals and Slots
         self.ui.onTopCheckBox.stateChanged.connect(self.setAlwaysOnTop)
+
+    # Use Crypto to Generate Public and Private Keys (.pem files)
+    def genKeysWithNames(self):
+        filename = self.ui.KeyFilenameInput.text()
+        savePath = QFileDialog.getExistingDirectory(QDialog(), "Choose Save Directory")
+        x = Crypto.PublicKey.RSA.generate(2048)
+        #  Crypto.PublicKey.RSA.generate(2048, Crypto.Random.new().read)
+        privateKey = x.exportKey("PEM")  # Generate Private Key
+        publicKey = x.publickey().exportKey()  # Generate Public Key
+
+        with open(savePath + "/" + filename + "_privateKey.pem", "wb") as x:
+            x.write(privateKey)
+        with open(savePath + "/" + filename + "_publicKey.pem", "wb") as x:
+            x.write(publicKey)
 
     def onPublicKeyBtn_Clicked(self):
         source = QFileDialog.getOpenFileName(QDialog(), "Select Public Key")
@@ -144,21 +162,25 @@ class MainWindow(QMainWindow):
         cipher_text = pyperclip.paste()
         self.ui.input.setText(cipher_text)
 
-    def onCopyOutputBtn_Clicked(self):
-        pyperclip.copy(self.ui.input.toPlainText())
+    def clearInput(self):
+        self.ui.input.clear()
 
+    def onCopyOutputBtn_Clicked(self):
+        pyperclip.copy(self.ui.output.toPlainText())
+
+    def onPasteOutputBtn_Clicked(self):
+        text = pyperclip.paste()
+        self.ui.output.setText(text)
+
+    def clearOutput(self):
+        self.ui.output.clear()
+
+    # Bug Here
     def setAlwaysOnTop(self):
-        # Bug Here
         if self.ui.onTopCheckBox.checkState() == Qt.Checked:
             self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
         elif self.ui.onTopCheckBox.checkState() == Qt.Unchecked:
             self.setWindowFlags(QtCore.Qt.Widget)
-
-    def clearInput(self):
-        self.ui.input.clear()
-
-    def clearOutput(self):
-        self.ui.output.clear()
 
     def onEncryptBtn_Clicked(self):
         msg = self.ui.input.toPlainText()
