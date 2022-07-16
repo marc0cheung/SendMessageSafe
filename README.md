@@ -25,11 +25,11 @@ from PySide2.QtCore import Qt
 
 ### How to use
 
-<img src="/Users/marcocheung/GitHub/SendMessageSafe/README.assets/SMS-AES-Mainpage-2.png" alt="SMS-AES-Mainpage-2" width="700px">
+<img src="https://github.com/marc0cheung/SendMessageSafe/raw/main/README.assets/SMS-AES-Mainpage-2.png" alt="SMS-AES-Mainpage-2" width="700px">
 
 ### Screenshot of SendMessageSafe AES Version Mainpage (in use)
 
-<img src="/Users/marcocheung/GitHub/SendMessageSafe/README.assets/SMS-AES-Mainpage.png" alt="SMS-AES-Mainpage" width="700px">
+<img src="https://github.com/marc0cheung/SendMessageSafe/raw/main/README.assets/SMS-AES-Mainpage.png" alt="SMS-AES-Mainpage" width="700px">
 
 <br>
 
