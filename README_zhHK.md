@@ -1,6 +1,6 @@
 # SendMessageSafe（安心傳訊）
 
-**選擇語言**: [English](https://github.com/marc0cheung/SendMessageSafe/README.md/) | 正體中文
+**選擇語言**: [English](https://github.com/marc0cheung/SendMessageSafe/blob/main/README.md/) | 正體中文
 
 <br>
 

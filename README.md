@@ -1,5 +1,5 @@
 # SendMessageSafe（安心傳訊）
-**Select Language**: English | [正體中文](https://github.com/marc0cheung/SendMessageSafe/README_zhHK.md/)
+**Select Language**: English | [正體中文](https://github.com/marc0cheung/SendMessageSafe/blob/main/README_zhHK.md/)
 
 <br>
 
